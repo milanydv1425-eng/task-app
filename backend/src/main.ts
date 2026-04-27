@@ -9,8 +9,9 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:3000',
-      'https://your-app.vercel.app',
+      'https://task-app-mqfc.vercel.app/',
     ],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
 
