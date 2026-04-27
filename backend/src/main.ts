@@ -7,13 +7,8 @@ async function bootstrap() {
 
   // 🔥 CORS (important for Vercel frontend)
   app.enableCors({
-    origin: [
-      'http://localhost:3000',
-      'https://task-app-mqfc.vercel.app/',
-    ],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-  });
+  origin: '*',
+});
 
   // 🔥 validation
   app.useGlobalPipes(
