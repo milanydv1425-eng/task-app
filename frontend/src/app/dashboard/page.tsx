@@ -23,7 +23,7 @@ export default function Dashboard() {
       const token = getToken();
       if (!token) return (window.location.href = "/login");
 
-      const res = await fetch("${API}", {
+      const res = await fetch(`${API}/notes`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -38,7 +38,7 @@ export default function Dashboard() {
   const handleAdd = async () => {
     const token = getToken();
 
-    const res = await fetch("${API}", {
+    const res = await fetch(`${API}/notes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export default function Dashboard() {
   const handleDelete = async (id: string) => {
     const token = getToken();
 
-    await fetch(`${API}/${id}`, {
+   await fetch(`${API}/notes/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -71,7 +71,7 @@ export default function Dashboard() {
   const handleEditSave = async () => {
     const token = getToken();
 
-    const res = await fetch(`${API}/${editId}`, {
+    const res = await fetch(`${API}/notes/${editId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -94,7 +94,7 @@ export default function Dashboard() {
   const toggleStatus = async (n: any) => {
     const token = getToken();
 
-    const res = await fetch(`${API}/${n._id}`, {
+    const res = await fetch(`${API}/notes/${n._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
