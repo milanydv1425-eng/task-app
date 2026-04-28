@@ -7,6 +7,11 @@ export const api = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
+
+    if (!res.ok) {
+      return null; // 👈 important
+    }
+
     return res.json();
   },
 
@@ -16,6 +21,11 @@ export const api = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     });
+
+    if (!res.ok) {
+      return null;
+    }
+
     return res.json();
   },
 
@@ -25,6 +35,11 @@ export const api = {
         Authorization: `Bearer ${token}`,
       },
     });
+
+    if (!res.ok) {
+      return { data: [] };
+    }
+
     return res.json();
   },
 };
