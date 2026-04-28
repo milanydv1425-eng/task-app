@@ -8,7 +8,7 @@ import { NotesModule } from './notes/notes.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true, // no need to import again anywhere
+      isGlobal: true,
     }),
 
     MongooseModule.forRootAsync({
